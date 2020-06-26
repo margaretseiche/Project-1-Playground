@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore Outdoors - Search</title>
+
+    <link rel="stylesheet" href="./assets/reset.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+    />
+    <link rel="stylesheet" href="./assets/stylesheet.css" />
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  </head>
+
+  <body>
+    <div class="bodyContainer">
+      <!-- header -->
+      <header>
+        <h1>Explore Outdoors</h1>
+        <img src="./assets/project_logo-05.png" alt="logo image" />
+      </header>
+      <!-- nav menu -->
+      <div class="dropdown" id="navMenu">
+        <button class="dropbtn">Menu</button>
+        <div class="dropdown-content">
+          <a href="index.html">Home</a>
+        </div>
+      </div>
+      <!-- body content -->
+      <div id="searchIntro">
+        <h2>Plan your next National Park trip</h2>
+        <p>
+          First, select your desired state to filter through available
+          activities and themes within the region.
+          <br /><br />
+          Next, tell us what you're looking for. Whether you love to hike, canoe
+          or learn, we can help you find the best park for your next adventure!
+        </p>
+      </div>
+
+      <form>
+        <div id="searchContainer">
+        <div class="search-cards" id="stateCard">
+          <h2>State</h2>
+          <div id="stateButtonBox">
+            <!--      <form id="stateButton">    -->
+            <select id="stateList">
+              <option value="" disabled selected hidden>Choose a state</option>
+            </select>
+            <!--      </form>   -->
+          </div>
+        </div>
+
+
+        <div class="search-cards" id="activityCard">
+          <h2>Activities</h2>
+          <div id="activityButtonBox">
+            <div id="activityButton">
+              <!--      <form id="activityButton">    -->
+              <select name="activities" id="activitiesListBtn"></select>
+              <option value="" disabled selected hidden>Optional</option>
+              </select>
+
+              <!--      </form>     -->
+            </div>
+          </div>
+        </div>
+
+        <div class="search-cards" id="themeCard">
+          <h2>Theme</h2>
+          <div id="themeButtonBox">
+            <div id="themeList">
+              <!--      <form id="themeList">   -->
+              <select name="themes" id="themeListBtn"></select>
+              <option value="" disabled selected hidden>Optional</option>
+              </select>
+              <!--      </form>      -->
+
+
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div id="searchSubmission">
+      <button id="submitButton">Submit</button>
+    </div>
+  </div>
+
+  </form>
+  <!--TO ENCLOSE ALL 4 USER INPUTS IN 1 FORM-->
+    <footer>
+      <p>&copy 2020 Explore Outdoors</p>
+    </footer>
+
+    <script src="./search.js"></script>
+  </body>
+</html>

@@ -1,0 +1,246 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+header {
+  background-color: #222b23;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  /* text-align: center; */
+  align-items: center;
+  /* height: 200px; */
+  box-shadow: 0rem 0.2rem 0.2rem 0 rgba(0, 0, 0);
+}
+
+header h1 {
+  margin-bottom: 10px;
+}
+
+header Img {
+  max-width: 80%;
+  /* margin: auto; */
+  /* position: relative; */
+}
+
+#navMenu {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+.dropbtn {
+  background-color: #3c4f40;
+  border-radius: 10px;
+  border-style: none;
+  padding: 1px 10px 1px 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.6);
+  color: #222b23;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  /* min-width: 160px; */
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  padding: 1px 10px 1px 10px;
+  border-radius: 3px;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  color: #a0b5a4;
+  font-weight: bolder;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #e7f7e8;
+}
+/* ///////////////// End of header info ///////////////////////////*/
+
+/* main body container */
+.container {
+  margin-top: 1rem;
+}
+
+/* top row container*/
+.pure-g {
+  /* background-color: gray; */
+  display: flex;
+  justify-content: center;
+  margin: 3rem;
+}
+/* left card (first row) w/ address */
+#detailSidebar {
+  background-color: #a0b5a4;
+  width: 20%;
+  padding: 1em;
+  overflow-wrap: break-word;
+  border-radius: 3px;
+  box-shadow: 0rem 0.2rem 0.2rem 0 rgba(0, 0, 0);
+  margin-right: 1rem;
+  font-size: 16pt;
+  display: flex;
+  flex-direction: column;
+  line-height: 2rem;
+}
+
+#detailSidebar h4 {
+  color: white;
+  padding-bottom: 3px;
+  font-weight: bolder;
+}
+
+#detailSidebar a:link {
+  text-decoration: none;
+  color: black;
+}
+
+/* right card (first row) */
+#detailMain {
+  width: 66%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0rem 1rem 0rem 1rem;
+}
+
+#detailMain h4 {
+  text-align: center;
+  /* width: 80%; */
+}
+
+#detailsParkName {
+  text-align: center;
+  color: #222b23;
+  font-size: 30pt;
+  padding-bottom: 1.5rem;
+}
+
+.detailsP {
+  display: inline-grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-column-gap: 1rem;
+  border-radius: 1px;
+  color: black;
+  margin-bottom: 0.5rem;
+  padding-top: 1rem;
+}
+
+.detailsP p {
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  text-align: left;
+}
+
+#detailActivitiesArea,
+#detailTopicsArea {
+  margin-top: 2rem;
+  /* background-color: rgb(234, 240, 229); */
+  width: 90%;
+  text-align: center;
+  /* border-radius: 3px;
+  box-shadow: 0rem 0.2rem 0.2rem 0 rgba(0, 0, 0); */
+}
+
+.detailCardSubheading {
+  color: white;
+  border-radius: 2px;
+  font-weight: bolder;
+  background-color: #222b23;
+  box-shadow: 0rem 0.2rem 0.2rem 0 rgba(0, 0, 0);
+  margin: auto;
+  font-size: 14pt;
+  padding: 15px 0px 15px 0px;
+}
+
+/* /////////////// start of image row ////////////// */
+
+.detailImageItem {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  margin: 1rem;
+  box-shadow: 0rem 0.2rem 0.2rem 0 rgba(0, 0, 0);
+  border-radius: 3px;
+}
+
+#detailImages {
+  /* background-color: hotpink; */
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  /* flex-direction: row; */
+  /* flex-wrap: wrap; */
+  /* flex-direction: row; */
+}
+
+/* //// MAPS /////don't remove it from the styling, it's requirements for the maps */
+#mapid {
+  border-radius: 3px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-gap: 1.5rem;
+  background-color: #222b23;
+  padding: 3rem;
+  margin: 2rem 0rem 3rem 0rem;
+}
+/* weather container */
+.grid-container > div {
+  background-color: white;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0rem 0.3rem 0.3rem 0 rgba(0, 0, 0);
+}
+
+#weatherDashboard h1 {
+  color: #222b23;
+  text-align: center;
+  font-weight: bold;
+}
+.bg-info {
+  background-color: #222b23;
+  border-radius: 3px;
+  margin-bottom: 1rem;
+  color: white;
+  line-height: 2rem;
+  box-shadow: 0.3rem 0.3rem 0.3rem 0 rgba(0, 0, 0);
+}
+
+.card-text {
+  margin-bottom: 2rem;
+  /* color: white; */
+}
+/* ////////// End of maps //////// */
+
+footer {
+  background-color: #435646;
+  height: 1.5rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
