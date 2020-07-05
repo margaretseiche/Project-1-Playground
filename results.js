@@ -9,152 +9,6 @@ $(document).ready(function () {
   var stateTheme = urlParams.get("theme"); // getting the activities from the URL
   console.log(stateTheme); // getting theme from the URL
 
-/*  var stateArray = [
-    "Alabama",
-    "Alaska",
-    "American Samoa",
-    "Arizona",
-    "Arkansas",
-    "California",
-    "Colorado",
-    "Connecticut",
-    "Delaware",
-    "Dist. of Columbia",
-    "Florida",
-    "Georgia",
-    "Guam",
-    "Hawaii",
-    "Idaho",
-    "Illinois",
-    "Indiana",
-    "Iowa",
-    "Kansas",
-    "Kentucky",
-    "Louisiana",
-    "Maine",
-    "Maryland",
-    "Massachusetts",
-    "Michigan",
-    "Minnesota",
-    "Mississippi",
-    "Missouri",
-    "Montana",
-    "Nebraska",
-    "Nevada",
-    "New Hampshire",
-    "New Jersey",
-    "New Mexico",
-    "New York",
-    "North Carolina",
-    "North Dakota",
-    "Northern Mariana Islands",
-    "Ohio",
-    "Oklahoma",
-    "Oregon",
-    "Pennsylvania",
-    "Puerto Rico",
-    "Rhode Island",
-    "South Carolina",
-    "South Dakota",
-    "Tennessee",
-    "Texas",
-    "Utah",
-    "Vermont",
-    "Virginia",
-    "Virgin Islands",
-    "Washington",
-    "West Virginia",
-    "Wisconsin",
-    "Wyoming",
-  ];
-*/
-/*  var stateAbbreviations = [
-    "AL",
-    "AK",
-    "AS",
-    "AZ",
-    "AR",
-    "CA",
-    "CO",
-    "CT",
-    "DE",
-    "DC",
-    "FL",
-    "GA",
-    "GU",
-    "HI",
-    "ID",
-    "IL",
-    "IN",
-    "IA",
-    "KS",
-    "KY",
-    "LA",
-    "ME",
-    "MD",
-    "MA",
-    "MI",
-    "MN",
-    "MS",
-    "MO",
-    "MT",
-    "NE",
-    "NV",
-    "NH",
-    "NJ",
-    "NM",
-    "NY",
-    "NC",
-    "ND",
-    "MP",
-    "OH",
-    "OK",
-    "OR",
-    "PA",
-    "PR",
-    "RI",
-    "SC",
-    "SD",
-    "TN",
-    "TX",
-    "UT",
-    "VT",
-    "VA",
-    "VI",
-    "WA",
-    "WV",
-    "WI",
-    "WY",
-  ];
-  */
-
-/*  // object of states
-  var statesObject = {};
-  stateArray.forEach(
-    (state, stateAbb) => (statesObject[state] = stateAbbreviations[stateAbb])
-  );
-  console.log(statesObject);
-*/
-
-/*  // submitButton on click function to call AJAX
-  console.log(stateName);
-  // var stateCode = "NY";
-//  var stateCode = statesObject[stateName];            //MARGARET EXPERIMENTING WITH ALTERNATE WAY TO GET stateCode for API query
-  var stateCode = stateAbbreviations[stateArray.indexOf(stateName)];  
-  console.log(stateCode);
-*/  
-/*    function test() {
-      $.ajax({
-        url:
-        "https://developer.nps.gov/api/v1/activities/parks?id=Biking&stateCode=NY&limit=75&api_key=9bu5bi3vaKYgYQt7Cj4pxdYFN8pkwsL9zSIiRFEd",
-        method: "GET",
-      }).then(function (data) {  
-        console.log(data); 
-      
-    });
-  }
-    test();
-*/
   function ajaxStatesCall(stateCode) {
     // if user picks only state option it'll be running only this AJAX api
 
@@ -163,7 +17,6 @@ $(document).ready(function () {
     $.ajax({
       url:
         "https://developer.nps.gov/api/v1/parks?stateCode=" +
-        //userInput +
         stateCode +
         "&api_key=9bu5bi3vaKYgYQt7Cj4pxdYFN8pkwsL9zSIiRFEd",
 
@@ -171,6 +24,7 @@ $(document).ready(function () {
     }).then(function (data) {
       console.log(data);
       console.log(data.data.length);
+      $(".spinner").addClass("hide");
       var totalParks = $("<h3>").prependTo("#resultsIntro");
       totalParks
         .text(
@@ -214,12 +68,12 @@ $(document).ready(function () {
     $.ajax({
       url:
         "https://developer.nps.gov/api/v1/parks?stateCode=" +
-        //userInputState +
         stateCode +
         "&api_key=9bu5bi3vaKYgYQt7Cj4pxdYFN8pkwsL9zSIiRFEd",
       method: "GET",
     }).then(function (data) {
       console.log(data);
+      $(".spinner").addClass("hide");
       var totalParks = $("<h3>").prependTo("#resultsIntro");
       totalParks
         .text(
@@ -229,7 +83,6 @@ $(document).ready(function () {
       $("<h3>")
         .text(
           "You picked " +
-          //userInputActivities +
           stateActivities +
             ". Try another activity to explore more."
         )
@@ -274,12 +127,12 @@ $(document).ready(function () {
     $.ajax({
       url:
         "https://developer.nps.gov/api/v1/parks?stateCode=" +
-        //userInputState +
         stateCode +
         "&api_key=9bu5bi3vaKYgYQt7Cj4pxdYFN8pkwsL9zSIiRFEd",
       method: "GET",
     }).then(function (data) {
       console.log(data);
+      $(".spinner").addClass("hide");
       var totalParks = $("<h3>").prependTo("#resultsIntro");
       totalParks
         .text(
@@ -289,7 +142,6 @@ $(document).ready(function () {
       $("<h3>")
         .text(
           "You picked " +
-          //  userInputTheme +
             stateTheme +
             ". Try another theme to explore more."
         )
@@ -338,12 +190,12 @@ $(document).ready(function () {
     $.ajax({
       url:
         "https://developer.nps.gov/api/v1/parks?stateCode=" +
-        //userInputState +
         stateCode +
         "&api_key=9bu5bi3vaKYgYQt7Cj4pxdYFN8pkwsL9zSIiRFEd",
       method: "GET",
     }).then(function (data) {
       console.log(data);
+      $(".spinner").addClass("hide");
       var totalParks = $("<h3>").prependTo("#resultsIntro");
       totalParks
         .text(
@@ -353,10 +205,8 @@ $(document).ready(function () {
       $("<h3>")
         .text(
           "You picked " +
-          //userInputActivities +
           stateActivities +
             " and " +
-          //userInputTheme +
             stateTheme +
             ". Try another activity or theme to explore more."
         )
@@ -427,9 +277,6 @@ $(document).ready(function () {
               .appendTo(resultsDiv);
           }
         }
-        // else {
-        //     $("<div>").text("Your search criteria did not match any Park in " + userInputState).appendTo("#parentResultsDiv");
-        // }
       }
       if (filteringActivities == false && filteringTheme == false) {
         $("<h1>")
@@ -461,11 +308,14 @@ $(document).ready(function () {
   }
 
   $("#parentResultsDiv").click(function (event) {
-    if (parkCode == null && event.target.parentNode != null) {
-      var longitude = event.target.parentNode.getAttribute("data-lon");
-      var latitude = event.target.parentNode.getAttribute("data-lat");
-      var parkCode = event.target.parentNode.getAttribute("data-park");
-    }
+    event.stopPropagation();
+    var d_results = event.target;
+    while(!d_results.getAttribute("data-park") && d_results.parentNode) d_results = d_results.parentNode;
+
+      var longitude = d_results.getAttribute("data-lon");
+      var latitude = d_results.getAttribute("data-lat");
+      var parkCode = d_results.getAttribute("data-park");
+    
 
     if (parkCode != null) {
       window.location.href =
