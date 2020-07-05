@@ -2,12 +2,14 @@ $(document).ready(function () {
   var urlParams = new URLSearchParams(window.location.search); //constructing URl with saved parameters from the window location href
   var stateName = urlParams.get("stateName"); // getting stateName from the URL
   console.log(stateName);
+  var stateCode = urlParams.get("stateCode"); // getting stateCode from the URL
+  console.log(stateCode);
   var stateActivities = urlParams.get("activity"); // getting the activities from the URL
   console.log(stateActivities);
   var stateTheme = urlParams.get("theme"); // getting the activities from the URL
   console.log(stateTheme); // getting theme from the URL
 
-  var stateArray = [
+/*  var stateArray = [
     "Alabama",
     "Alaska",
     "American Samoa",
@@ -65,8 +67,8 @@ $(document).ready(function () {
     "Wisconsin",
     "Wyoming",
   ];
-
-  var stateAbbreviations = [
+*/
+/*  var stateAbbreviations = [
     "AL",
     "AK",
     "AS",
@@ -124,28 +126,47 @@ $(document).ready(function () {
     "WI",
     "WY",
   ];
+  */
 
-  // object of states
+/*  // object of states
   var statesObject = {};
   stateArray.forEach(
     (state, stateAbb) => (statesObject[state] = stateAbbreviations[stateAbb])
   );
   console.log(statesObject);
+*/
 
-  // submitButton on click function to call AJAX
+/*  // submitButton on click function to call AJAX
   console.log(stateName);
   // var stateCode = "NY";
-  var stateCode = statesObject[stateName];
+//  var stateCode = statesObject[stateName];            //MARGARET EXPERIMENTING WITH ALTERNATE WAY TO GET stateCode for API query
+  var stateCode = stateAbbreviations[stateArray.indexOf(stateName)];  
   console.log(stateCode);
-
-  function ajaxStatesCall(userInput) {
+*/  
+/*    function test() {
+      $.ajax({
+        url:
+        "https://developer.nps.gov/api/v1/activities/parks?id=Biking&stateCode=NY&limit=75&api_key=9bu5bi3vaKYgYQt7Cj4pxdYFN8pkwsL9zSIiRFEd",
+        method: "GET",
+      }).then(function (data) {  
+        console.log(data); 
+      
+    });
+  }
+    test();
+*/
+  function ajaxStatesCall(stateCode) {
     // if user picks only state option it'll be running only this AJAX api
+
+    //"https://developer.nps.gov/api/v1/parks?api_key="  + apiKey + "&stateCode=" + "NY"
 
     $.ajax({
       url:
         "https://developer.nps.gov/api/v1/parks?stateCode=" +
-        userInput +
+        //userInput +
+        stateCode +
         "&api_key=9bu5bi3vaKYgYQt7Cj4pxdYFN8pkwsL9zSIiRFEd",
+
       method: "GET",
     }).then(function (data) {
       console.log(data);
@@ -187,13 +208,14 @@ $(document).ready(function () {
         }
       }
     });
-  }
-  function ajaxStateActivityCall(userInputState, userInputActivities) {
+  } 
+  function ajaxStateActivityCall(stateCode, stateActivities) {
     // if user picks state and activity, it'll be filtering in the given state by matching activity
     $.ajax({
       url:
         "https://developer.nps.gov/api/v1/parks?stateCode=" +
-        userInputState +
+        //userInputState +
+        stateCode +
         "&api_key=9bu5bi3vaKYgYQt7Cj4pxdYFN8pkwsL9zSIiRFEd",
       method: "GET",
     }).then(function (data) {
@@ -207,14 +229,15 @@ $(document).ready(function () {
       $("<h3>")
         .text(
           "You picked " +
-            userInputActivities +
+          //userInputActivities +
+          stateActivities +
             ". Try another activity to explore more."
         )
         .prependTo($("#resultsResume"));
       for (var i = 0; i < data.data.length; i++) {
         var activitiesObj = data.data[i].activities;
         for (var j = 0; j < activitiesObj.length; j++) {
-          if (activitiesObj[j].name == userInputActivities) {
+          if (activitiesObj[j].name == stateActivities) {
             var parkName = data.data[i].fullName;
             var resultsDiv = $("<div>")
               .addClass("results")
@@ -245,13 +268,14 @@ $(document).ready(function () {
         }
       }
     });
-  }
-  function ajaxStateThemesCall(userInputState, userInputTheme) {
+  } 
+  function ajaxStateThemesCall(stateCode, stateTheme) {
     // if user picks state and theme, it'' be filtering in the given state by matching theme
     $.ajax({
       url:
         "https://developer.nps.gov/api/v1/parks?stateCode=" +
-        userInputState +
+        //userInputState +
+        stateCode +
         "&api_key=9bu5bi3vaKYgYQt7Cj4pxdYFN8pkwsL9zSIiRFEd",
       method: "GET",
     }).then(function (data) {
@@ -265,14 +289,15 @@ $(document).ready(function () {
       $("<h3>")
         .text(
           "You picked " +
-            userInputTheme +
+          //  userInputTheme +
+            stateTheme +
             ". Try another theme to explore more."
         )
         .prependTo($("#resultsResume"));
       for (var i = 0; i < data.data.length; i++) {
         var topicsObj = data.data[i].topics;
         for (var j = 0; j < topicsObj.length; j++) {
-          if (topicsObj[j].name == userInputTheme) {
+          if (topicsObj[j].name == stateTheme) {
             var parkName = data.data[i].fullName;
             var resultsDiv = $("<div>")
               .addClass("results")
@@ -305,15 +330,16 @@ $(document).ready(function () {
     });
   }
   function ajaxStateActivityThemeCall(
-    userInputState,
-    userInputActivities,
-    userInputTheme
+    stateCode,
+    stateActivities,
+    stateTheme
   ) {
     // if user picks only state option it'll be running only this AJAX api
     $.ajax({
       url:
         "https://developer.nps.gov/api/v1/parks?stateCode=" +
-        userInputState +
+        //userInputState +
+        stateCode +
         "&api_key=9bu5bi3vaKYgYQt7Cj4pxdYFN8pkwsL9zSIiRFEd",
       method: "GET",
     }).then(function (data) {
@@ -327,9 +353,11 @@ $(document).ready(function () {
       $("<h3>")
         .text(
           "You picked " +
-            userInputActivities +
+          //userInputActivities +
+          stateActivities +
             " and " +
-            userInputTheme +
+          //userInputTheme +
+            stateTheme +
             ". Try another activity or theme to explore more."
         )
         .prependTo($("#resultsResume"));
@@ -347,7 +375,7 @@ $(document).ready(function () {
       var filteringTheme = false;
       for (var x of activitiesObj) {
         for (var y of x) {
-          if (y.name == userInputActivities) {
+          if (y.name == stateActivities) {
             filteringActivities = true;
             parkByActivities.push(data.data[activitiesObj.indexOf(x)]);
           }
@@ -357,7 +385,7 @@ $(document).ready(function () {
       console.log(parkByActivities);
       for (var x of topicsObj) {
         for (var y of x) {
-          if (y.name == userInputTheme) {
+          if (y.name == stateTheme) {
             filteringTheme = true;
             parkByTheme.push(data.data[topicsObj.indexOf(x)]);
           }
@@ -406,7 +434,7 @@ $(document).ready(function () {
       if (filteringActivities == false && filteringTheme == false) {
         $("<h1>")
           .text(
-            "Your search criteria did not match any Park in " + userInputState
+            "Your search criteria did not match any Park in " + stateName
           )
           .appendTo("#parentResultsDiv");
       }
