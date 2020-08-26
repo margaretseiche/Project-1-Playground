@@ -9,5 +9,3 @@
 
 
 [Project page](https://github.com/users/khantatyana/projects/1)
-
-[tes](/Project Presentation (1).pptx)
