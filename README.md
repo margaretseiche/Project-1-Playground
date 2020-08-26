@@ -1,4 +1,4 @@
-[Github-playground](https://margaretseiche.github.io/Project-1-Playground/)
+[Github - Current version with updates](https://margaretseiche.github.io/Project-1-Playground/)
 
 [GitHub page-PRESENTATION VERSION](https://khantatyana.github.io/Project-1/)
 
