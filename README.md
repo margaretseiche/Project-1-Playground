@@ -1,6 +1,7 @@
 [Github - Current version with updates - 17 commits](https://margaretseiche.github.io/Project-1-Playground/)
 
 [Project task board](https://github.com/users/khantatyana/projects/1)
+
 [Project page, including commit history - 112 commits](https://github.com/khantatyana/Day-trip-planner)
 
 ## Description 
