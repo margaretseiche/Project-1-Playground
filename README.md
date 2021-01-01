@@ -1,6 +1,9 @@
 [Github - Current version with updates](https://margaretseiche.github.io/Project-1-Playground/)
 
-[Project page](https://github.com/users/khantatyana/projects/1)
+[Project page (including commit history)](https://github.com/users/khantatyana/projects/1)
+
+## Description 
+Create a day trip planner linked to the 400+ National Parks with a user-friendly interface.  Allow users to locate all parks within their state.  User can refine the search by filtering through themes and activities.  Link location and weather information to produce a seamless experience.
 
 ## Contributors
 Brielle McCormick, Tatyana Khan, Heribert Villazana, Daria Tharmaratnam, Margaret Seiche
