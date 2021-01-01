@@ -1,7 +1,7 @@
 [Github - Current version with updates - 17 commits](https://margaretseiche.github.io/Project-1-Playground/)
 
 [Project task board](https://github.com/users/khantatyana/projects/1)
-[Project page (including commit history - 112 commits)](https://github.com/khantatyana/Day-trip-planner)
+[Project page, including commit history - 112 commits](https://github.com/khantatyana/Day-trip-planner)
 
 ## Description 
 Create a day trip planner linked to the 400+ National Parks with a user-friendly interface.  Allow users to locate all parks within their state.  User can refine the search by filtering through themes and activities.  Link location and weather information to produce a seamless experience.
